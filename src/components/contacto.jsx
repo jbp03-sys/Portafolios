@@ -16,13 +16,12 @@ export default function ContactoComponent() {
       <div>
         <h1 className="titelH1">Contáctame</h1>
         <p className="text">
-          Si deseas ponerte en contacto conmigo puedes escribir un correo a:
+          Si deseas ponerte en contacto conmigo puedes escribir un correo:
         </p>
       </div>
       
       <div className="email-display">
         <div className="email-content">
-          <div className="email-icon">✉️</div>
           <h3 className="titelH3">Mi dirección de correo:</h3>
           
           <div className="email-address-container">
@@ -47,9 +46,13 @@ export default function ContactoComponent() {
       
       {/* Redes Sociales */}
       <div className="social-links">
-        
+        <div>
+          <h3 className='titelh3'>Link de las redes aqui abajo:</h3>
+        </div>
+      
+        <div>
         <a 
-          href="https://github.com/tuperfil" 
+          href="https://github.com/jbp03-sys" 
           target="_blank" 
           rel="noopener noreferrer"
           className="social-link"
@@ -57,43 +60,8 @@ export default function ContactoComponent() {
           <span className="social-icon">💻</span>
           <span className="social-name">GitHub</span>
         </a>
-        
+        </div>
       </div>
-      
-      {/* Formulario de contacto */}
-      <form className="contact-form">
-        <h3 className="form-title">¿Prefieres escribirme directamente?</h3>
-        
-        <div className="form-group">
-          <input 
-            type="text" 
-            placeholder="Tu nombre" 
-            className="form-input"
-            required
-          />
-        </div>
-        
-        <div className="form-group">
-          <input 
-            type="email" 
-            placeholder="Tu email" 
-            className="form-input"
-            required
-          />
-        </div>
-        
-        <div className="form-group">
-          <textarea 
-            placeholder="Tu mensaje..." 
-            className="form-textarea"
-            required
-          />
-        </div>
-        
-        <button type="submit" className="form-button">
-          Enviar mensaje
-        </button>
-      </form>
-    </div>
+     </div>
   );
 }

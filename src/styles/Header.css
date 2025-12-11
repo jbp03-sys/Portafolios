@@ -1,4 +1,4 @@
-/* styles/hero.css - VERSIÓN CON TEXTOS VISIBLES */
+/* styles/Header.css */
 
 /* ----------- VARIABLES ----------- */
 :root {
@@ -33,43 +33,76 @@
   box-shadow: 
     0 20px 60px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  color: var(--white); /* Asegura que TODO el texto sea blanco */
+  color: var(--white);
 }
 
-/* Efecto de fondo */
-.Header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 20% 50%, rgba(67, 97, 238, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(247, 37, 133, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(114, 9, 183, 0.1) 0%, transparent 50%);
-  z-index: 0;
-  opacity: 0.6;
-}
-
-/* Contenedor del contenido */
-.Header > * {
+/* ----------- IMAGEN REDONDA ----------- */
+.Header img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 2.5rem;
+  border: 6px solid transparent;
+  
+  /* Borde gradiente */
+  background: 
+    linear-gradient(var(--dark), var(--dark)) padding-box,
+    linear-gradient(135deg, 
+      var(--primary) 0%, 
+      var(--accent) 50%, 
+      var(--secondary) 100%
+    ) border-box;
+  
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(67, 97, 238, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+  
+  transition: all 0.4s ease;
   position: relative;
   z-index: 2;
+  animation: floatImage 6s ease-in-out infinite;
 }
 
-/* ----------- TÍTULO PRINCIPAL (TEXTO VISIBLE) ----------- */
+/* Efecto hover en la imagen */
+.Header img:hover {
+  transform: scale(1.05) rotate(5deg);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(247, 37, 133, 0.3),
+    inset 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+/* Contenedor decorativo para la imagen */
+.Header img::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, 
+    var(--primary) 0%, 
+    var(--accent) 50%, 
+    var(--secondary) 100%
+  );
+  opacity: 0.2;
+  z-index: -1;
+}
+
+/* ----------- TÍTULO PRINCIPAL ----------- */
 .titelH1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  color: var(--white); /* TEXTO BLANCO SÓLIDO */
+  color: var(--white);
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
   animation: fadeInUp 0.8s ease-out;
 }
 
-/* Solo el span con gradiente */
 .titelH1 span {
   background: linear-gradient(45deg, 
     var(--primary) 0%, 
@@ -83,7 +116,6 @@
   display: inline-block;
 }
 
-/* Efecto subrayado para el nombre */
 .titelH1 span::after {
   content: '';
   position: absolute;
@@ -99,13 +131,13 @@
   opacity: 0.7;
 }
 
-/* ----------- TEXTO DESCRIPTIVO (TEXTO VISIBLE) ----------- */
+/* ----------- TEXTO DESCRIPTIVO ----------- */
 .text {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1.6;
-  color: var(--gray); /* TEXTO GRIS CLARO VISIBLE */
+  color: var(--gray);
   max-width: 700px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 2rem;
   font-weight: 400;
   animation: fadeInUp 0.8s ease-out 0.2s both;
   padding: 0 1.5rem;
@@ -116,59 +148,38 @@
 .text::after {
   content: '';
   position: absolute;
-  width: 40px;
-  height: 1px;
+  width: 60px;
+  height: 2px;
   background: linear-gradient(90deg, 
     transparent, 
     var(--primary), 
     transparent
   );
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 .text::before {
-  top: -20px;
+  top: -15px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .text::after {
-  bottom: -20px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* ----------- BOTÓN (TEXTO VISIBLE) ----------- */
-.hero-button {
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  background: linear-gradient(135deg, 
-    var(--primary) 0%, 
-    var(--secondary) 100%
-  );
-  color: var(--white); /* TEXTO BLANCO SÓLIDO */
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 10px 30px rgba(67, 97, 238, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  animation: fadeInUp 0.8s ease-out 0.4s both;
-}
-
-.hero-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 
-    0 15px 40px rgba(67, 97, 238, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.2);
-}
-
 /* ----------- ANIMACIONES ----------- */
+@keyframes floatImage {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -180,16 +191,44 @@
   }
 }
 
-/* Elementos flotantes */
-.floating-element {
+/* Elementos decorativos flotantes */
+.Header::before {
+  content: '';
   position: absolute;
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(45deg, var(--primary), transparent);
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  opacity: 0.05;
-  animation: float 15s ease-in-out infinite;
-  z-index: 1;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, 
+    rgba(67, 97, 238, 0.1) 0%, 
+    transparent 70%
+  );
+  top: 10%;
+  right: 10%;
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.Header::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, 
+    rgba(247, 37, 133, 0.1) 0%, 
+    transparent 70%
+  );
+  bottom: 15%;
+  left: 10%;
+  animation: pulse 6s ease-in-out infinite reverse;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
 }
 
 /* ----------- RESPONSIVE ----------- */
@@ -199,8 +238,14 @@
     margin: 1.5rem auto;
   }
   
+  .Header img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 2rem;
+  }
+  
   .titelH1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
   }
   
   .text {
@@ -213,6 +258,13 @@
   .Header {
     padding: 4rem 1rem 2.5rem;
     margin: 1rem auto;
+    min-height: 75vh;
+  }
+  
+  .Header img {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 1.5rem;
   }
   
   .titelH1 {
@@ -221,11 +273,23 @@
   
   .text {
     font-size: 1.1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
+  .Header {
+    min-height: 70vh;
+    padding: 3rem 1rem 2rem;
+  }
+  
+  .Header img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1.2rem;
+    border-width: 4px;
+  }
+  
   .titelH1 {
     font-size: 2rem;
   }
@@ -244,15 +308,29 @@
       rgba(255, 255, 255, 0.98) 100%
     );
     border: 1px solid rgba(0, 0, 0, 0.05);
-    color: #1a1a1a; /* Texto oscuro en modo claro */
+    color: #1a1a1a;
+  }
+  
+  .Header img {
+    background: 
+      linear-gradient(#fff, #fff) padding-box,
+      linear-gradient(135deg, 
+        var(--primary) 0%, 
+        var(--accent) 50%, 
+        var(--secondary) 100%
+      ) border-box;
+    box-shadow: 
+      0 15px 40px rgba(0, 0, 0, 0.15),
+      0 0 20px rgba(67, 97, 238, 0.1),
+      inset 0 0 15px rgba(0, 0, 0, 0.05);
   }
   
   .titelH1 {
-    color: #1a1a1a; /* TEXTO OSCURO VISIBLE */
+    color: #1a1a1a;
   }
   
   .text {
-    color: rgba(26, 26, 26, 0.8); /* Texto gris oscuro */
+    color: rgba(26, 26, 26, 0.8);
   }
   
   .titelH1 span {
@@ -263,5 +341,15 @@
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  
+  .text::before,
+  .text::after {
+    background: linear-gradient(90deg, 
+      transparent, 
+      var(--primary), 
+      transparent
+    );
+    opacity: 0.2;
   }
 }

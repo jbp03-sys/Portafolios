@@ -276,3 +276,130 @@
     color: rgba(0, 0, 0, 0.6);
   }
 }
+/* components/ProjectCard.css */
+.project-card {
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.image-container {
+  position: relative;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.project-image {
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+.title {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.description {
+  line-height: 1.6;
+  min-height: 4.8em; /* Para mantener consistencia */
+}
+
+.btn {
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+}
+
+/* ========== ARREGLOS PARA IMÁGENES ========== */
+
+/* Contenedor de imagen mejorado */
+.project-card .image-container {
+  width: 100%;
+  height: 200px; /* Altura fija para consistencia */
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px 12px 0 0;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+/* Imagen con relación de aspecto mantenida */
+.project-card .project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ¡ESTO ES CLAVE! */
+  object-position: center;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+/* Efecto hover */
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* Overlay para el modo oscuro */
+.project-card .image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 0.1) 0%, 
+    rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+
+/* ========== AJUSTES PARA EL CONTENEDOR DE LA CARD ========== */
+.project-card {
+  /* Elimina o ajusta estos valores si causan problemas */
+  /* height: 100%; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  
+  /* Añade esto para mejor estructura */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Contenido de la card */
+.project-card .content {
+  flex-grow: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Descripción ocupa el espacio disponible */
+.project-card .description {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+/* Botón al final */
+.project-card .project-link {
+  margin-top: auto;
+}
+
+/* ========== RESPONSIVE PARA IMÁGENES ========== */
+@media (max-width: 768px) {
+  .project-card .image-container {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card .image-container {
+    height: 160px;
+  }
+}

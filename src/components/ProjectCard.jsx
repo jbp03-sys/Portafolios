@@ -1,18 +1,29 @@
-import "../styles/ProjectCard.css";
+// components/ProjectCard.jsx
+import React from 'react';
+import "../styles/ProjectCard.css"; // Importa el CSS global
 
-export default function ProjectCard({ title, description, link }) {
+export default function ProjectCard({ title, description, image }) {
   return (
-    <div>
-      <h2 className="titelh2">{title}</h2>
-      <p className="text">{description}</p>
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-600 font-medium hover:underline"
-      >
-        Veure projecte
-      </a>
+    <div className="project-card">
+      {/* Contenedor de imagen */}
+      <div className="image-container">
+        <img 
+          src={image}
+          alt={title}
+          className="project-image"
+          loading="lazy"
+          // Fallback si la imagen no carga
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = "https://via.placeholder.com/400x200/4CAF50/FFFFFF?text=" + encodeURIComponent(title);
+          }}
+        />
+      </div>
+      
+      <div className="content">
+        <h2>{title}</h2>
+        <p className="description">{description}</p>
+      </div>
     </div>
   );
 }
