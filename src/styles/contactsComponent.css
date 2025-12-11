@@ -1,0 +1,468 @@
+/* styles/contact.css - VERSIÓN MEJORADA CON RECUADROS BONITOS */
+
+/* ----------- CONTACT SECTION ----------- */
+.contact-container {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  position: relative;
+  max-width: 1000px;
+  margin: 2rem auto;
+  width: 95%;
+  background: linear-gradient(135deg, 
+    rgba(30, 30, 30, 0.97) 0%,
+    rgba(26, 26, 26, 0.99) 100%
+  );
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Fondo con efecto de partículas */
+.contact-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(67, 97, 238, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(247, 37, 133, 0.08) 0%, transparent 60%),
+    repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.01) 2px, rgba(255,255,255,0.01) 4px);
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* Borde decorativo superior */
+.contact-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--primary) 20%, 
+    var(--accent) 50%, 
+    var(--primary) 80%, 
+    transparent 100%
+  );
+  border-radius: 0 0 4px 4px;
+}
+
+/* ----------- EMAIL DISPLAY (RECUADRO PRINCIPAL MEJORADO) ----------- */
+.email-display {
+  background: linear-gradient(145deg, 
+    rgba(67, 97, 238, 0.12) 0%,
+    rgba(247, 37, 133, 0.07) 100%
+  );
+  backdrop-filter: blur(15px);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  padding: 3rem;
+  margin: 2.5rem auto;
+  max-width: 550px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: floatIn 0.8s ease-out 0.3s both;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Efecto de brillo en los bordes */
+.email-display::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 22px;
+  padding: 1.5px;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.2), 
+    rgba(255, 255, 255, 0.05), 
+    rgba(255, 255, 255, 0.2)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.email-display:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(67, 97, 238, 0.4);
+  box-shadow: 
+    0 25px 60px rgba(67, 97, 238, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 0 1px rgba(67, 97, 238, 0.1);
+}
+
+/* Icono de email mejorado */
+.email-icon {
+  font-size: 3.5rem;
+  color: var(--primary);
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 4px 8px rgba(67, 97, 238, 0.3));
+  animation: subtleFloat 3s ease-in-out infinite;
+}
+
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Título del email */
+.titelH3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 1.8rem 0;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.8rem;
+}
+
+.titelH3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+/* ----------- DIRECCIÓN DE EMAIL (RECUADRO BONITO) ----------- */
+.email-address-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.email-address-box {
+  background: linear-gradient(135deg, 
+    rgba(30, 30, 30, 0.8) 0%,
+    rgba(40, 40, 40, 0.9) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(67, 97, 238, 0.25);
+  border-radius: 18px;
+  padding: 1.8rem 2.5rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.email-address-box:hover {
+  transform: translateY(-3px);
+  border-color: rgba(67, 97, 238, 0.5);
+  box-shadow: 
+    0 20px 40px rgba(67, 97, 238, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.email-address-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary), var(--accent));
+  opacity: 0.7;
+}
+
+.email-address {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+  letter-spacing: -0.5px;
+  transition: all 0.3s ease;
+  display: block;
+  text-align: center;
+  word-break: break-all;
+  position: relative;
+  z-index: 2;
+}
+
+.email-address:hover {
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(247, 37, 133, 0.3);
+}
+
+/* ----------- BOTONES DE ACCIÓN (RECUADROS BONITOS) ----------- */
+.buttons-container {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  flex: 1;
+  min-width: 200px;
+  max-width: 250px;
+  padding: 1.2rem 2rem;
+  border: none;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  min-height: 60px;
+}
+
+/* Botón Copiar Email */
+.copy-button {
+  background: linear-gradient(135deg, 
+    rgba(67, 97, 238, 0.15) 0%,
+    rgba(67, 97, 238, 0.25) 100%
+  );
+  color: var(--primary);
+  border: 1.5px solid rgba(67, 97, 238, 0.3);
+}
+
+.copy-button:hover {
+  background: linear-gradient(135deg, 
+    var(--primary) 0%,
+    var(--primary-dark) 100%
+  );
+  color: white;
+  transform: translateY(-5px) scale(1.03);
+  border-color: transparent;
+  box-shadow: 0 15px 35px rgba(67, 97, 238, 0.4);
+}
+
+.copy-button.copied {
+  background: linear-gradient(135deg, 
+    #10b981 0%,
+    #059669 100%
+  );
+  color: white;
+  border-color: transparent;
+}
+
+/* Botón GitHub */
+.github-button {
+  background: linear-gradient(135deg, 
+    rgba(36, 41, 46, 0.15) 0%,
+    rgba(36, 41, 46, 0.25) 100%
+  );
+  color: #f0f6fc;
+  border: 1.5px solid rgba(240, 246, 252, 0.2);
+}
+
+.github-button:hover {
+  background: linear-gradient(135deg, 
+    #24292e 0%,
+    #0d1117 100%
+  );
+  color: white;
+  transform: translateY(-5px) scale(1.03);
+  border-color: transparent;
+  box-shadow: 0 15px 35px rgba(36, 41, 46, 0.4);
+}
+
+/* Efecto de brillo en todos los botones */
+.action-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.action-button:hover::before {
+  left: 100%;
+}
+
+/* ----------- REDES SOCIALES (RECUADROS MEJORADOS) ----------- */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem auto 0;
+  max-width: 550px;
+  width: 100%;
+}
+
+.social-card {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.8rem 1rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(67, 97, 238, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.social-card:hover::before {
+  opacity: 1;
+}
+
+.social-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.social-name {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+/* LinkedIn específico */
+.social-card.linkedin .social-icon { color: #0077b5; }
+.social-card.github .social-icon { color: #f0f6fc; }
+.social-card.twitter .social-icon { color: #1da1f2; }
+
+/* ----------- ANIMACIONES ----------- */
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(67, 97, 238, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(67, 97, 238, 0.3);
+  }
+}
+
+.copy-button.copied {
+  animation: pulse 0.5s ease;
+}
+
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 3rem 1.5rem;
+    margin: 1.5rem auto;
+    border-radius: 24px;
+  }
+  
+  .email-display {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .email-address {
+    font-size: 1.4rem;
+  }
+  
+  .buttons-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .action-button {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .social-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 2rem 1rem;
+    border-radius: 20px;
+  }
+  
+  .email-display {
+    padding: 2rem 1rem;
+  }
+  
+  .email-address {
+    font-size: 1.2rem;
+  }
+  
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .titelH3 {
+    font-size: 1.4rem;
+  }
+}

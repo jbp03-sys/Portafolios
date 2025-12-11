@@ -1,0 +1,278 @@
+/* styles/project-cards.css */
+
+/* ----------- PROJECT CARD ----------- */
+.project-card {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Efecto de brillo en el borde */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(67, 97, 238, 0.3), 
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Punto decorativo */
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+/* Efecto hover */
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(67, 97, 238, 0.3);
+  background: linear-gradient(135deg, 
+    rgba(67, 97, 238, 0.08) 0%,
+    rgba(247, 37, 133, 0.05) 100%
+  );
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(67, 97, 238, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+/* ----------- TÍTULO DEL PROYECTO ----------- */
+.project-card h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+/* Subrayado decorativo */
+.project-card h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 2px;
+}
+
+/* ----------- DESCRIPCIÓN ----------- */
+.project-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+/* ----------- ENLACE "VER PROYECTO" ----------- */
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  background: rgba(67, 97, 238, 0.1);
+  border-radius: 50px;
+  border: 1px solid rgba(67, 97, 238, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-size: 1rem;
+  align-self: flex-start;
+}
+
+/* Flecha del enlace */
+.project-link::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover del enlace */
+.project-link:hover {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border-color: transparent;
+  padding-right: 2rem;
+  box-shadow: 0 5px 20px rgba(67, 97, 238, 0.3);
+}
+
+.project-link:hover::after {
+  transform: translateX(5px);
+}
+
+/* Efecto de brillo al pasar el mouse */
+.project-link::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: transform 0.6s ease;
+}
+
+.project-link:hover::before {
+  transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* ----------- BADGE DE TECNOLOGÍA (opcional) ----------- */
+.tech-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ----------- CONTENEDOR DE CARDS ----------- */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: 0 1rem;
+}
+
+/* ----------- ANIMACIONES ----------- */
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.project-card {
+  animation: cardAppear 0.6s ease-out forwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 768px) {
+  .project-card {
+    padding: 2rem;
+  }
+  
+  .project-card h2 {
+    font-size: 1.6rem;
+  }
+  
+  .project-card p {
+    font-size: 1rem;
+  }
+  
+  .projects-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .project-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    padding: 1.5rem;
+  }
+  
+  .project-card h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* ----------- MODO CLARO ----------- */
+@media (prefers-color-scheme: light) {
+  .project-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 
+      0 10px 30px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+  
+  .project-card:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: var(--primary);
+    box-shadow: 
+      0 20px 50px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(67, 97, 238, 0.1);
+  }
+  
+  .project-card h2 {
+    color: #1a1a1a;
+  }
+  
+  .project-card p {
+    color: rgba(26, 26, 26, 0.7);
+  }
+  
+  .project-link {
+    background: rgba(67, 97, 238, 0.08);
+    border: 1px solid rgba(67, 97, 238, 0.2);
+    color: var(--primary);
+  }
+  
+  .tech-badge {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
